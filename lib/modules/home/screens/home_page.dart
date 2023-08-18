@@ -26,9 +26,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.deepPurple,
+          onPressed: () {  },
+      child: const Icon(Icons.add,color: Colors.white,)),
       appBar: AppBar(
+        elevation: 0.0,
         title: const Center(child: Text('Random Users',style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color: Colors.black),)),
-        backgroundColor: Colors.grey.shade100,
+        backgroundColor: Colors.grey.withOpacity(0.08),
       ),
       body:  BlocProvider(
           create: (_) => _bloc,

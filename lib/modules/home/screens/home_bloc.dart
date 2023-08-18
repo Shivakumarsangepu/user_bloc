@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:users_list_bloc/modules/home/screens/home_event.dart';
 import 'package:users_list_bloc/modules/utils/base_state.dart';
-import '../models/home_page_response.dart';
 import 'home_repository.dart';
 
 class HomeBloc extends Bloc<HomeEvent,BaseState>{
@@ -14,10 +13,9 @@ class HomeBloc extends Bloc<HomeEvent,BaseState>{
     try {
       final response = await _repository.getHomePageDetails() ;
       emit (DataLoaded(event: "GetHomePageDetails",data: response));
-    } catch (error, stack) {
+    } catch (error) {
       emit (BaseError(error.toString()));
 
     }
   }
-
 }
