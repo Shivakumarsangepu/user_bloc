@@ -8,11 +8,17 @@ class HomeBloc extends Bloc<HomeEvent,BaseState>{
   HomeBloc({required BaseState initialState}) : super(initialState){
     on <GetHomePageDetails>(_onGetHomePageDetails);
   }
-  Future<void> _onGetHomePageDetails(event ,Emitter<BaseState>emit) async {
+
+  Future<void> _onGetHomePageDetails(GetHomePageDetails event ,Emitter<BaseState>emit) async {
     emit (Loading());
     try {
-      final response = await _repository.getHomePageDetails() ;
-      emit (DataLoaded(event: "GetHomePageDetails",data: response));
+      final response = await _repository.getHomePageDetails(event.num) ;
+      if(response!=null && response.results!=null && response.results!.length>0){
+        emit (DataLoaded(event: "GetHomePageDetails",data: response));
+      }else{
+        emit (DataLoaded(event: "GetHomePageDetails",data: null));
+      }
+
     } catch (error) {
       emit (BaseError(error.toString()));
 

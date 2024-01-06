@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
               return Column(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height/4.4,
+                    height: MediaQuery.of(context).size.height/3.4,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -125,9 +125,10 @@ class _HomePageState extends State<HomePage> {
                   Align(
                       alignment: Alignment.centerRight,
                       child: SizedBox(
-                          width: MediaQuery.of(context).size.width/1.61,
+                          width: MediaQuery.of(context).size.width,
                           child: Divider(
                             color: Colors.grey.shade400,thickness: 1.5,)))
+
                 ],
               );
             }
@@ -143,6 +144,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   callHomePageAPI(){
-    _bloc.add(GetHomePageDetails());
+    _bloc.add(GetHomePageDetails(num: 5));
   }
 }

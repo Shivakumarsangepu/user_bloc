@@ -6,8 +6,8 @@ import '../models/home_page_response.dart';
 class HomeRepository {
   const HomeRepository();
 
-  Future<HomePageResponse> getHomePageDetails() async {
-    http.Response response = await http.get(Uri.parse("https://randomuser.me/api/?results=5."));
+  Future<HomePageResponse> getHomePageDetails(int num) async {
+    http.Response response = await http.get(Uri.parse("https://randomuser.me/api/?results=$num."));
     print("statusCode::${response.statusCode}");
     if (response.statusCode == 200){
       AppLog.d("Response::${response.body.toString()}");
