@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Medical App',
+      title: 'Random Users',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,

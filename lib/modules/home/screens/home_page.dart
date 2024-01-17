@@ -45,7 +45,15 @@ class _HomePageState extends State<HomePage> {
             }
             if (state is DataLoaded) {
               if (state.event == "GetHomePageDetails") {
-                response = state.data;
+                if(state.data!=null){
+                  response = state.data;
+                }else{
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                        content: new Text('No data found'),
+                        backgroundColor: Colors.red),
+                  );
+                }
               }
             }
             if (state is Error) {

@@ -13,7 +13,7 @@ class HomeBloc extends Bloc<HomeEvent,BaseState>{
     emit (Loading());
     try {
       final response = await _repository.getHomePageDetails(event.num) ;
-      if(response!=null && response.results!=null && response.results!.length>0){
+      if(response.results!=null && response.results!.length>0){
         emit (DataLoaded(event: "GetHomePageDetails",data: response));
       }else{
         emit (DataLoaded(event: "GetHomePageDetails",data: null));
